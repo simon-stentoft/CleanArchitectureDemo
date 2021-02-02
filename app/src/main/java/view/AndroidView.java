@@ -1,4 +1,4 @@
-package com.example.cleanarchitecturedemo;
+package view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.cleanarchitecturedemo.R;
+
+public class AndroidView extends AppCompatActivity {
 EditText editText;
 TextView outputView;
 Button enterButton;
