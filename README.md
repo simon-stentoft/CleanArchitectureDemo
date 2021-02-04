@@ -1,0 +1,3 @@
+# CleanArchitectureDemo
+
+First Android app.
