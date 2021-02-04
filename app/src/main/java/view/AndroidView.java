@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import java.util.Observable;
+import java.util.Observer;
 
 import com.example.cleanarchitecturedemo.R;
 
@@ -25,6 +27,7 @@ private Model model = new Model();
         setContentView(R.layout.activity_main);
 
 
+
         editText = (EditText)findViewById(R.id.editText);
         editText.setText(model.getData()); //Anvender nu model for at få data
 
@@ -37,9 +40,20 @@ private Model model = new Model();
             @Override
             public void onClick(View v) {
             String string = editText.getText().toString();
-            outputView.setText(string);
             }
         });
 
+    }
+    private void observeModel() {
+        model.addObserver(new Observer() {
+            @Override
+            public void update(Observable o, Object arg) {
+                if (o instanceof Model) {
+                    String data = ((Model) o).getData();
+                    TextView outputView = (TextView) findViewById(R.id.outputView);
+                    outputView.setText(data);
+                }
+            }
+        });
     }
 }
